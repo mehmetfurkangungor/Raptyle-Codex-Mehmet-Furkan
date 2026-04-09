@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raptyle | Yorumlar</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="reviews">
+    <div class="site-shell">
+      <header class="topbar">
+        <nav class="nav">
+          <a href="./index.html">Koleksiyon</a>
+          <a href="./kalite.html">Kalite</a>
+          <a class="active" href="./yorumlar.html">Yorumlar</a>
+          <a href="./admin.html">Admin Panel</a>
+        </nav>
+        <a class="brand brand-inline" href="./index.html" aria-label="Raptyle ana sayfa">
+          <img src="./images/logo.png" alt="Raptyle logo" />
+        </a>
+        <div class="topbar-actions">
+          <a class="button primary cart-link" href="./sepet.html">
+            Sepete Git
+            <span class="cart-count" data-cart-count>0</span>
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section class="review-header">
+          <aside class="rating-summary reveal">
+            <div class="rating-circle">
+              <strong id="average-rating">4.7</strong>
+            </div>
+            <div class="rating-bars">
+              <div><span>5</span><i><b style="width: 84%"></b></i></div>
+              <div><span>4</span><i><b style="width: 62%"></b></i></div>
+              <div><span>3</span><i><b style="width: 22%"></b></i></div>
+              <div><span>2</span><i><b style="width: 10%"></b></i></div>
+              <div><span>1</span><i><b style="width: 4%"></b></i></div>
+            </div>
+          </aside>
+
+          <div class="review-shell reveal stagger-1">
+            <div class="reviews-layout">
+              <div class="review-list" id="review-list"></div>
+              <form class="review-form" id="review-form">
+                <h3>Yorum bırak</h3>
+                <div class="field-row">
+                  <label>
+                    İsim
+                    <input type="text" name="name" placeholder="Adınız" required />
+                  </label>
+                  <label>
+                    Ürün
+                    <select name="product" required>
+                      <option value="Signature White">Signature White</option>
+                      <option value="Shadow Ronin">Shadow Ronin</option>
+                      <option value="Night Eclipse">Night Eclipse</option>
+                    </select>
+                  </label>
+                </div>
+                <label>
+                  Puan
+                  <select name="rating" required>
+                    <option value="5">5/5</option>
+                    <option value="4">4/5</option>
+                    <option value="3">3/5</option>
+                    <option value="2">2/5</option>
+                    <option value="1">1/5</option>
+                  </select>
+                </label>
+                <label>
+                  Yorum
+                  <textarea
+                    name="comment"
+                    rows="4"
+                    placeholder="Kumaş, kalıp veya baskı deneyimini paylaş"
+                    required
+                  ></textarea>
+                </label>
+                <button class="button primary" type="submit">Değerlendirmeyi Gönder</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

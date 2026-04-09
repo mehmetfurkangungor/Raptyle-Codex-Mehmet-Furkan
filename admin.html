@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raptyle | Admin Panel</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="admin">
+    <div class="site-shell">
+      <header class="topbar">
+        <nav class="nav">
+          <a href="./index.html">Koleksiyon</a>
+          <a href="./kalite.html">Kalite</a>
+          <a href="./yorumlar.html">Yorumlar</a>
+          <a class="active" href="./admin.html">Admin Panel</a>
+        </nav>
+        <a class="brand brand-inline" href="./index.html" aria-label="Raptyle ana sayfa">
+          <img src="./images/logo.png" alt="Raptyle logo" />
+        </a>
+        <div class="topbar-actions">
+          <a class="button primary cart-link" href="./sepet.html">
+            Sepete Git
+            <span class="cart-count" data-cart-count>0</span>
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section class="admin-hero reveal">
+          <div>
+            <p class="eyebrow">Raptyle Yönetim</p>
+            <h1>Ürün paneli</h1>
+            <p>
+              Ürün ekle, stok bilgisini güncelle, fiyatı düzenle ve satıştan kaldırmak istediğin
+              parçaları arşivle. Bu ön gösterim panelindeki kayıtlar tarayıcıda saklanır.
+            </p>
+          </div>
+          <div class="admin-hero-stat">
+            <strong id="admin-total-stock">0</strong>
+            <span>Toplam Stok</span>
+          </div>
+        </section>
+
+        <section class="admin-layout">
+          <form class="admin-form reveal" id="admin-product-form">
+            <input type="hidden" name="productId" />
+            <h2>Ürün bilgisi</h2>
+            <div class="field-row">
+              <label>
+                Ürün Adı
+                <input type="text" name="name" placeholder="Örn. Signature White" required />
+              </label>
+              <label>
+                Ürün Kodu
+                <input type="text" name="sku" placeholder="Örn. RPTYL-WHT-01" required />
+              </label>
+            </div>
+            <div class="field-row">
+              <label>
+                Kategori
+                <select name="category" required>
+                  <option value="Oversize Tişört">Oversize Tişört</option>
+                  <option value="Anime Drop">Anime Drop</option>
+                  <option value="Limited Drop">Limited Drop</option>
+                  <option value="Aksesuar">Aksesuar</option>
+                </select>
+              </label>
+              <label>
+                Ürün Görseli
+                <select name="image" required>
+                  <option value="./images/beyaz ön.jpg">Beyaz Ön</option>
+                  <option value="./images/beyaz arka.jpg">Beyaz Arka</option>
+                  <option value="./images/gri_arka.jpg">Gri Arka</option>
+                  <option value="./images/siyah ön.jpg">Siyah Ön</option>
+                  <option value="./images/siyah arka.jpg">Siyah Arka</option>
+                </select>
+              </label>
+            </div>
+            <div class="field-row">
+              <label>
+                Fiyat
+                <input type="number" name="price" min="0" step="1" placeholder="1299" required />
+              </label>
+              <label>
+                Stok
+                <input type="number" name="stock" min="0" step="1" placeholder="25" required />
+              </label>
+            </div>
+            <label>
+              Kısa Açıklama
+              <textarea name="description" rows="4" placeholder="Kumaş, kalıp, baskı veya drop notu" required></textarea>
+            </label>
+            <div class="admin-form-actions">
+              <button class="button primary" type="submit">Ürünü Kaydet</button>
+              <button class="button secondary" type="button" id="admin-form-reset">Formu Temizle</button>
+            </div>
+          </form>
+
+          <aside class="admin-summary reveal stagger-1">
+            <h2>Panel özeti</h2>
+            <div class="summary-row">
+              <span>Aktif ürün</span>
+              <strong id="admin-active-count">0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Arşivlenen</span>
+              <strong id="admin-archived-count">0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Düşük stok</span>
+              <strong id="admin-low-stock-count">0</strong>
+            </div>
+            <p class="admin-note">
+              Bu panel ödev sunumu ve marka ön gösterimi içindir. Kayıtlar yorumlar gibi aynı
+              tarayıcı içinde korunur.
+            </p>
+          </aside>
+        </section>
+
+        <section class="admin-products-section">
+          <div class="section-heading reveal">
+            <div>
+              <p class="eyebrow">Ürün Verisi</p>
+              <h2>Paneldeki ürünler</h2>
+            </div>
+            <p>Aktif ürünleri düzenle, stok değerlerini takip et veya ürünü arşive taşı.</p>
+          </div>
+          <div class="admin-product-list" id="admin-product-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

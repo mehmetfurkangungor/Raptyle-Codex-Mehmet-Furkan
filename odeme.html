@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raptyle | Ödeme</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="checkout">
+    <div class="site-shell">
+      <header class="topbar">
+        <nav class="nav">
+          <a href="./index.html">Koleksiyon</a>
+          <a href="./kalite.html">Kalite</a>
+          <a href="./yorumlar.html">Yorumlar</a>
+          <a href="./admin.html">Admin Panel</a>
+        </nav>
+        <a class="brand brand-inline" href="./index.html" aria-label="Raptyle ana sayfa">
+          <img src="./images/logo.png" alt="Raptyle logo" />
+        </a>
+        <div class="topbar-actions">
+          <a class="button primary cart-link" href="./sepet.html">
+            Sepete Dön
+            <span class="cart-count" data-cart-count>0</span>
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section class="checkout-layout reveal">
+          <form class="checkout-form" id="checkout-form">
+            <p class="eyebrow">Güvenli Ödeme Önizleme</p>
+            <h1>Ödeme bilgileri</h1>
+            <p class="checkout-intro">
+              Bu ekran sipariş akışını göstermek için hazırlanmıştır. Kart bilgisi alınmaz; formu
+              gönderdiğinde demo sipariş onayı görürsün.
+            </p>
+            <div class="field-row">
+              <label>
+                Ad Soyad
+                <input type="text" name="fullName" placeholder="Adınız ve soyadınız" required />
+              </label>
+              <label>
+                Telefon
+                <input type="tel" name="phone" placeholder="05xx xxx xx xx" required />
+              </label>
+            </div>
+            <label>
+              E-posta
+              <input type="email" name="email" placeholder="mail@ornek.com" required />
+            </label>
+            <label>
+              Teslimat Adresi
+              <textarea name="address" rows="5" placeholder="Mahalle, sokak, bina, ilçe / il" required></textarea>
+            </label>
+            <div class="checkout-payment-placeholder">
+              <strong>Ödeme alanı</strong>
+              <span>Gerçek ödeme altyapısı kapalıdır. Bu bölüm checkout deneyimi içindir.</span>
+            </div>
+            <button class="button primary" type="submit">Demo Siparişi Tamamla</button>
+          </form>
+
+          <aside class="checkout-summary">
+            <h2>Sipariş Kontrolü</h2>
+            <div class="checkout-items" id="checkout-items"></div>
+            <div class="summary-total">
+              <span>Ödenecek Tutar</span>
+              <strong id="checkout-total">0 TL</strong>
+            </div>
+            <div class="checkout-status" id="checkout-status">
+              Bilgileri doldur ve demo sipariş onayını oluştur.
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raptyle | Sepet</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="cart">
+    <div class="site-shell">
+      <header class="topbar">
+        <nav class="nav">
+          <a href="./index.html">Koleksiyon</a>
+          <a href="./kalite.html">Kalite</a>
+          <a href="./yorumlar.html">Yorumlar</a>
+          <a href="./admin.html">Admin Panel</a>
+        </nav>
+        <a class="brand brand-inline" href="./index.html" aria-label="Raptyle ana sayfa">
+          <img src="./images/logo.png" alt="Raptyle logo" />
+        </a>
+        <div class="topbar-actions">
+          <a class="button primary cart-link" href="./sepet.html">
+            Sepet
+            <span class="cart-count" data-cart-count>0</span>
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section class="cart-layout reveal">
+          <div>
+            <div id="cart-state"></div>
+            <div class="cart-items" id="cart-items"></div>
+          </div>
+
+          <aside class="cart-summary">
+            <h3>Sipariş Özeti</h3>
+            <p>Sipariş özeti, koleksiyondan seçtiğin ürünleri temiz bir toplam yapısında gösterir.</p>
+            <div class="summary-row">
+              <span>Ara Toplam</span>
+              <strong id="cart-subtotal">0 TL</strong>
+            </div>
+            <div class="summary-row">
+              <span>Kargo</span>
+              <strong>Ücretsiz</strong>
+            </div>
+            <div class="summary-total">
+              <span>Genel Toplam</span>
+              <strong id="cart-total">0 TL</strong>
+            </div>
+            <div class="cart-checkout-actions">
+              <a class="checkout-cta" href="./odeme.html">
+                <span>Ödemeye Geç</span>
+                <b>Güvenli ödeme önizlemesi</b>
+              </a>
+              <a class="continue-shopping-link" href="./index.html">Koleksiyona Dön</a>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

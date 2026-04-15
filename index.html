@@ -3,201 +3,125 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Raptyle | Koleksiyon</title>
+    <title>Raptyle | Ana Sayfa</title>
     <meta
       name="description"
-      content="Raptyle premium anime streetwear koleksiyonu. Oversize kalıp, %100 pamuk ve koyu estetik bir marka deneyimi."
+      content="Raptyle premium anime streetwear markası. Oversize kalıp, güçlü grafik dil ve karanlık sokak estetiği."
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body data-page="home">
     <div class="site-shell">
       <header class="topbar">
-        <nav class="nav">
-          <a class="active" href="./index.html">Koleksiyon</a>
+        <nav class="nav nav-left">
+          <a href="./koleksiyon.html">Koleksiyon</a>
           <a href="./kalite.html">Kalite</a>
-          <a href="./yorumlar.html">Yorumlar</a>
-          <a href="./admin.html">Admin Panel</a>
         </nav>
         <a class="brand brand-inline" href="./index.html" aria-label="Raptyle ana sayfa">
           <img src="./images/logo.png" alt="Raptyle logo" />
         </a>
+        <nav class="nav nav-right">
+          <a href="./yorumlar.html">Yorumlar</a>
+          <a href="./admin.html">Admin Panel</a>
+        </nav>
         <div class="topbar-actions">
-          <a class="button primary cart-link" href="./sepet.html">
-            Sepete Git
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Temayı değiştir" aria-pressed="false">
+            <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+            <span class="theme-toggle-label">Tema</span>
+          </button>
+          <a class="button primary cart-link" href="./sepet.html" aria-label="Sepet">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 5h2l1.3 7.2A2 2 0 0 0 8.3 14H17a2 2 0 0 0 1.9-1.4L21 7H7.1" />
+              <circle cx="9" cy="19" r="1.6" />
+              <circle cx="17" cy="19" r="1.6" />
+            </svg>
+            <span class="cart-label">Sepet</span>
             <span class="cart-count" data-cart-count>0</span>
           </a>
         </div>
       </header>
 
       <main>
-        <section class="hero hero-home">
-          <div class="hero-copy reveal">
-            <p class="eyebrow">Dark Anime Streetwear</p>
-            <h1>Raptyle koleksiyonu. Premium oversize anime tişörtler.</h1>
+        <section class="home-hero">
+          <div class="home-hero-copy reveal">
+            <p class="eyebrow">Raptyle Studio</p>
+            <h1>Anime enerjisini premium streetwear formuna taşıyan karanlık bir drop.</h1>
             <p class="hero-text">
-              Beyaz, gri ve siyah tonlarında premium oversize tişörtler. Net siluet,
-              güçlü baskı dili ve %100 pamuk dokusuyla sade ama iddialı bir koleksiyon.
+              Raptyle; oversize kalıp, tok pamuk hissi ve güçlü grafik kompozisyonlarla sade ama
+              dikkat çeken bir sokak giyimi dili kurar.
             </p>
             <div class="hero-actions">
-              <a class="button primary" href="#urunler">Drop'u İncele</a>
-              <a class="button secondary" href="./kalite.html">Özellikleri Gör</a>
+              <a class="button primary" href="./koleksiyon.html">Koleksiyona Git</a>
+              <a class="button secondary" href="./kalite.html">Marka Hissini Gör</a>
             </div>
-            <ul class="hero-metrics" aria-label="Marka özellikleri">
-              <li>
-                <strong>%100</strong>
-                <span>Pamuk yüzey</span>
-              </li>
-              <li>
-                <strong>Premium</strong>
-                <span>Tok ve ağır his</span>
-              </li>
-              <li>
-                <strong>3 Renk</strong>
-                <span>Beyaz, gri, siyah</span>
-              </li>
-            </ul>
           </div>
 
-          <div class="hero-showcase reveal stagger-1">
-            <article class="floating-card tall">
-              <img src="./images/beyaz ön.jpg" alt="Raptyle beyaz t-shirt ön görünüm" />
-              <div class="floating-meta">
-                <span>Signature White</span>
-                <strong>Minimal ön yüz, iddialı arka kompozisyon</strong>
-              </div>
-            </article>
-            <article class="floating-card small tilt-left">
-              <img src="./images/gri_arka.jpg" alt="Raptyle gri t-shirt arka görünüm" />
-            </article>
-            <article class="floating-card small tilt-right">
-              <img src="./images/siyah ön.jpg" alt="Raptyle siyah t-shirt ön görünüm" />
-            </article>
+          <div class="home-orbit reveal stagger-1" aria-label="Raptyle ürün özeti">
+            <img class="orbit-main" src="./images/logo.png" alt="Raptyle marka logosu" />
+            <img class="orbit-piece orbit-one" src="./images/beyaz ön.jpg" alt="Raptyle beyaz tişört ön görünüm" />
+            <img class="orbit-piece orbit-two" src="./images/gri_arka.jpg" alt="Raptyle gri tişört arka görünüm" />
+            <img class="orbit-piece orbit-three" src="./images/siyah ön.jpg" alt="Raptyle siyah tişört ön görünüm" />
           </div>
         </section>
 
-        <section class="collection" id="urunler">
-          <div class="section-heading reveal">
+        <section class="brand-summary">
+          <article class="summary-card reveal">
+            <span>01</span>
+            <h2>Karanlık anime dili</h2>
+            <p>Ön yüz sakin, arka yüz güçlü. Raptyle ürünleri ilk bakışta sade, yakından bakınca karakterli durur.</p>
+          </article>
+          <article class="summary-card reveal stagger-1">
+            <span>02</span>
+            <h2>Premium oversize form</h2>
+            <p>Tok pamuk hissi ve dengeli kalıp, ürünü günlük kombinlerde rahat ama özenli gösterir.</p>
+          </article>
+          <article class="summary-card reveal stagger-2">
+            <span>03</span>
+            <h2>Üç ana parça</h2>
+            <p>Signature White, Shadow Ronin ve Night Eclipse koleksiyonu farklı tonlarda aynı marka ruhunu taşır.</p>
+          </article>
+        </section>
+
+        <section class="home-product-strip reveal">
+          <div class="section-heading">
             <div>
-              <p class="eyebrow">The Drop</p>
-              <h2>Raptyle ana koleksiyonu</h2>
+              <p class="eyebrow">Kısa Bakış</p>
+              <h2>Drop'un ruhu</h2>
             </div>
-            <p>
-              Koleksiyondaki ana parçaları incele, özelliklerini gör ve doğrudan sepete ekle.
-            </p>
+            <p>Ürünleri hızlıca tanı, sonra koleksiyon sayfasında tek tek detaylarına gir.</p>
           </div>
 
-          <div class="product-grid">
-            <article class="product-card reveal">
-              <div class="product-gallery">
-                <img src="./images/beyaz ön.jpg" alt="Beyaz Signature ön" />
-                <img src="./images/beyaz arka.jpg" alt="Beyaz Signature arka" />
-              </div>
-              <div class="product-body">
-                <div class="product-head">
-                  <div>
-                    <h3>Signature White</h3>
-                    <p>Temiz ön görünüm, dramatik arka illüstrasyon.</p>
-                  </div>
-                  <span class="price">1.249 TL</span>
-                </div>
-                <ul class="product-specs">
-                  <li>%100 pamuk premium kumaş</li>
-                  <li>Oversize kalıp</li>
-                  <li>Yüksek kontrast anime baskı</li>
-                </ul>
-                <div class="product-actions">
-                  <button
-                    class="button primary add-to-cart"
-                    type="button"
-                    data-product-id="signature-white"
-                    data-product-name="Signature White"
-                    data-product-price="1249"
-                    data-product-image="./images/beyaz ön.jpg"
-                  >
-                    Sepete Ekle
-                  </button>
-                  <a class="button secondary" href="./yorumlar.html">Yorumları Gör</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="product-card reveal stagger-1">
-              <div class="product-gallery">
-                <img src="./images/gri_arka.jpg" alt="Gri Shadow Ronin arka" />
-                <img src="./images/beyaz arka.jpg" alt="Gri Shadow Ronin detay görünüm" />
-              </div>
-              <div class="product-body">
-                <div class="product-head">
-                  <div>
-                    <h3>Shadow Ronin</h3>
-                    <p>Fade gri yüzey üzerinde sinematik savaşçı kompozisyonu.</p>
-                  </div>
-                  <span class="price">1.349 TL</span>
-                </div>
-                <ul class="product-specs">
-                  <li>Yıkamalı gri görünüm</li>
-                  <li>Geniş arka baskı alanı</li>
-                  <li>Koleksiyon hissi veren tonal yapı</li>
-                </ul>
-                <div class="product-actions">
-                  <button
-                    class="button primary add-to-cart"
-                    type="button"
-                    data-product-id="shadow-ronin"
-                    data-product-name="Shadow Ronin"
-                    data-product-price="1349"
-                    data-product-image="./images/gri_arka.jpg"
-                  >
-                    Sepete Ekle
-                  </button>
-                  <a class="button secondary" href="./kalite.html">Kalite Detayı</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="product-card reveal stagger-2">
-              <div class="product-gallery">
-                <img src="./images/siyah ön.jpg" alt="Siyah Night Eclipse ön" />
-                <img src="./images/siyah arka.jpg" alt="Siyah Night Eclipse ikinci görünüm" />
-              </div>
-              <div class="product-body">
-                <div class="product-head">
-                  <div>
-                    <h3>Night Eclipse</h3>
-                    <p>Siyah kumaş üzerinde ay ve Japon karakter detayıyla sade güç.</p>
-                  </div>
-                  <span class="price">1.299 TL</span>
-                </div>
-                <ul class="product-specs">
-                  <li>Derin siyah ton</li>
-                  <li>Minimal ön yerleşim</li>
-                  <li>Streetwear ve anime dengesi</li>
-                </ul>
-                <div class="product-actions">
-                  <button
-                    class="button primary add-to-cart"
-                    type="button"
-                    data-product-id="night-eclipse"
-                    data-product-name="Night Eclipse"
-                    data-product-price="1299"
-                    data-product-image="./images/siyah ön.jpg"
-                  >
-                    Sepete Ekle
-                  </button>
-                  <a class="button secondary" href="./sepet.html">Sepete Git</a>
-                </div>
-              </div>
-            </article>
+          <div class="mini-product-row">
+            <a class="mini-product" href="./urun-signature-white.html">
+              <img src="./images/beyaz ön.jpg" alt="Signature White ürün önizlemesi" />
+              <strong>Signature White</strong>
+              <span>Temiz ön görünüm</span>
+            </a>
+            <a class="mini-product" href="./urun-shadow-ronin.html">
+              <img src="./images/gri_arka.jpg" alt="Shadow Ronin ürün önizlemesi" />
+              <strong>Shadow Ronin</strong>
+              <span>Sinematik arka baskı</span>
+            </a>
+            <a class="mini-product" href="./urun-night-eclipse.html">
+              <img src="./images/siyah ön.jpg" alt="Night Eclipse ürün önizlemesi" />
+              <strong>Night Eclipse</strong>
+              <span>Sade siyah güç</span>
+            </a>
           </div>
-        </section>
 
-        <section class="premium-banner reveal">
-          <p>Premium Streetwear</p>
+          <div class="home-final-cta">
+            <a class="button primary" href="./koleksiyon.html">Ürünleri Tek Tek İncele</a>
+          </div>
         </section>
       </main>
     </div>
 
-    <script src="./script.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

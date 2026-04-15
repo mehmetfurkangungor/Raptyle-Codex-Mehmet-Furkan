@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Raptyle | Sepet</title>
+    <title>Raptyle | Shadow Ronin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,11 +12,11 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body data-page="cart">
+  <body data-page="product">
     <div class="site-shell">
       <header class="topbar">
         <nav class="nav nav-left">
-          <a href="./koleksiyon.html">Koleksiyon</a>
+          <a class="active" href="./koleksiyon.html">Koleksiyon</a>
           <a href="./kalite.html">Kalite</a>
         </nav>
         <a class="brand brand-inline" href="./index.html" aria-label="Raptyle ana sayfa">
@@ -44,35 +44,38 @@
       </header>
 
       <main>
-        <section class="cart-layout reveal">
-          <div>
-            <div id="cart-state"></div>
-            <div class="cart-items" id="cart-items"></div>
+        <section class="product-detail reveal">
+          <div class="product-detail-gallery">
+            <img src="./images/gri_arka.jpg" alt="Shadow Ronin arka görünüm" />
+            <img src="./images/beyaz arka.jpg" alt="Shadow Ronin detay görünüm" />
           </div>
-
-          <aside class="cart-summary">
-            <h3>Sipariş Özeti</h3>
-            <p>Sipariş özeti, koleksiyondan seçtiğin ürünleri temiz bir toplam yapısında gösterir.</p>
-            <div class="summary-row">
-              <span>Ara Toplam</span>
-              <strong id="cart-subtotal">0 TL</strong>
+          <article class="product-detail-copy">
+            <p class="eyebrow">Shadow Ronin</p>
+            <h1>Fade gri yüzey üzerinde sinematik savaşçı kompozisyonu.</h1>
+            <p>
+              Shadow Ronin, yıkamalı gri tonu ve geniş arka baskı alanıyla koleksiyonun en
+              sinematik parçası gibi durur.
+            </p>
+            <ul class="product-specs">
+              <li>Yıkamalı gri görünüm</li>
+              <li>Geniş arka baskı alanı</li>
+              <li>Koleksiyon hissi veren tonal yapı</li>
+            </ul>
+            <div class="product-detail-price">1.349 TL</div>
+            <div class="product-actions">
+              <button
+                class="button primary add-to-cart"
+                type="button"
+                data-product-id="shadow-ronin"
+                data-product-name="Shadow Ronin"
+                data-product-price="1349"
+                data-product-image="./images/gri_arka.jpg"
+              >
+                Sepete Ekle
+              </button>
+              <a class="button secondary" href="./koleksiyon.html">Koleksiyona Dön</a>
             </div>
-            <div class="summary-row">
-              <span>Kargo</span>
-              <strong>Ücretsiz</strong>
-            </div>
-            <div class="summary-total">
-              <span>Genel Toplam</span>
-              <strong id="cart-total">0 TL</strong>
-            </div>
-            <div class="cart-checkout-actions">
-              <a class="checkout-cta" href="./odeme.html">
-                <span>Ödemeye Geç</span>
-                <b>Güvenli ödeme önizlemesi</b>
-              </a>
-              <a class="continue-shopping-link" href="./koleksiyon.html">Koleksiyona Dön</a>
-            </div>
-          </aside>
+          </article>
         </section>
       </main>
     </div>

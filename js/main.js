@@ -1,6 +1,7 @@
 const reviewStorageKey = "raptyle-reviews";
 const cartStorageKey = "raptyle-cart";
 const adminProductsStorageKey = "raptyle-admin-products";
+const themeStorageKey = "raptyle-theme";
 
 const defaultReviews = [
   {
@@ -138,11 +139,38 @@ function updateCartCount() {
   });
 }
 
+function applyTheme(theme) {
+  const nextTheme = theme === "light" ? "light" : "dark";
+  document.body.dataset.theme = nextTheme;
+  document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+    const isLight = nextTheme === "light";
+    button.setAttribute("aria-pressed", String(isLight));
+    button.setAttribute("aria-label", isLight ? "Koyu temaya geç" : "Açık temaya geç");
+    const icon = button.querySelector(".theme-toggle-icon");
+    if (icon) icon.textContent = isLight ? "☀" : "☾";
+  });
+}
+
+function initThemeToggle() {
+  const savedTheme = localStorage.getItem(themeStorageKey);
+  applyTheme(savedTheme === "light" ? "light" : "dark");
+
+  document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const nextTheme = document.body.dataset.theme === "light" ? "dark" : "light";
+      localStorage.setItem(themeStorageKey, nextTheme);
+      applyTheme(nextTheme);
+    });
+  });
+}
+
 function showToast(message) {
   let toast = document.querySelector(".toast");
   if (!toast) {
     toast = document.createElement("div");
     toast.className = "toast";
+    toast.setAttribute("role", "status");
+    toast.setAttribute("aria-live", "polite");
     document.body.appendChild(toast);
   }
 
@@ -270,7 +298,7 @@ function renderCart() {
       <div class="empty-cart">
         <h3>Sepetin şu an boş</h3>
         <p>Koleksiyondan ürün ekleyerek satın alma akışını buradan yönetebilirsin.</p>
-        <a class="button primary" href="./index.html">Koleksiyona Dön</a>
+        <a class="button primary" href="./koleksiyon.html">Koleksiyona Dön</a>
       </div>
     `;
     cartItems.innerHTML = "";
@@ -319,7 +347,7 @@ function renderCheckout() {
       <div class="empty-cart">
         <h3>Ödeme için ürün yok</h3>
         <p>Ödeme sayfasına devam etmeden önce koleksiyondan ürün eklemelisin.</p>
-        <a class="button primary" href="./index.html">Koleksiyona Dön</a>
+        <a class="button primary" href="./koleksiyon.html">Koleksiyona Dön</a>
       </div>
     `;
     checkoutTotal.textContent = "0 TL";
@@ -352,6 +380,14 @@ function initCheckoutForm() {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+    if (!loadCart().length) {
+      status.textContent =
+        "Ödeme onayı oluşturmak için önce koleksiyondan en az bir ürün eklemelisin.";
+      status.classList.remove("is-success");
+      showToast("Sepet boş");
+      return;
+    }
+
     status.textContent =
       "Demo sipariş oluşturuldu. Gerçek ödeme alınmadı; bu ekran yalnızca satın alma akışını gösterir.";
     status.classList.add("is-success");
@@ -368,6 +404,7 @@ function productStatusLabel(product) {
 
 function productCardMarkup(product) {
   const archiveLabel = product.archived ? "Arşivden Çıkar" : "Arşivle";
+  const stockLevel = Math.min(100, Math.max(0, Number(product.stock) * 4));
   return `
     <article class="admin-product-card ${product.archived ? "is-archived" : ""}">
       <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" />
@@ -383,7 +420,10 @@ function productCardMarkup(product) {
         <div class="admin-product-meta">
           <span>${escapeHtml(product.category)}</span>
           <span>${formatPrice(product.price)}</span>
-          <span>${Number(product.stock)} stok</span>
+          <span class="stock-chip">
+            <b>${Number(product.stock)} stok</b>
+            <i><em style="width: ${stockLevel}%"></em></i>
+          </span>
         </div>
         <div class="admin-product-actions">
           <button class="button secondary small" type="button" data-admin-action="edit" data-id="${escapeHtml(product.id)}">Düzenle</button>
@@ -400,6 +440,8 @@ function renderAdminProducts() {
   const archivedCount = document.getElementById("admin-archived-count");
   const lowStockCount = document.getElementById("admin-low-stock-count");
   const totalStock = document.getElementById("admin-total-stock");
+  const totalStockBar = document.getElementById("admin-total-stock-bar");
+  const totalStockNote = document.getElementById("admin-total-stock-note");
   if (!list) return;
 
   const products = loadAdminProducts();
@@ -413,7 +455,11 @@ function renderAdminProducts() {
   if (archivedCount) archivedCount.textContent = archivedProducts.length;
   if (lowStockCount) lowStockCount.textContent = lowStockProducts.length;
   if (totalStock) {
-    totalStock.textContent = products.reduce((sum, product) => sum + Number(product.stock), 0);
+    const stockTotal = products.reduce((sum, product) => sum + Number(product.stock), 0);
+    const stockLevel = Math.min(100, Math.round((stockTotal / 40) * 100));
+    totalStock.textContent = stockTotal;
+    if (totalStockBar) totalStockBar.style.width = `${stockLevel}%`;
+    if (totalStockNote) totalStockNote.textContent = `${stockLevel}% stok doluluğu`;
   }
 
   list.querySelectorAll("[data-admin-action]").forEach((button) => {
@@ -548,6 +594,7 @@ function initMobileHeaderBehavior() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initThemeToggle();
   updateCartCount();
   initAddToCartButtons();
   renderReviews();

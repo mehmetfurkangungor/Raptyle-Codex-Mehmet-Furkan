@@ -4,23 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raptyle | Ödeme</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body data-page="checkout">
     <div class="site-shell">
       <header class="topbar">
-        <nav class="nav">
-          <a href="./index.html">Koleksiyon</a>
+        <nav class="nav nav-left">
+          <a href="./koleksiyon.html">Koleksiyon</a>
           <a href="./kalite.html">Kalite</a>
-          <a href="./yorumlar.html">Yorumlar</a>
-          <a href="./admin.html">Admin Panel</a>
         </nav>
         <a class="brand brand-inline" href="./index.html" aria-label="Raptyle ana sayfa">
           <img src="./images/logo.png" alt="Raptyle logo" />
         </a>
+        <nav class="nav nav-right">
+          <a href="./yorumlar.html">Yorumlar</a>
+          <a href="./admin.html">Admin Panel</a>
+        </nav>
         <div class="topbar-actions">
-          <a class="button primary cart-link" href="./sepet.html">
-            Sepete Dön
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Temayı değiştir" aria-pressed="false">
+            <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+            <span class="theme-toggle-label">Tema</span>
+          </button>
+          <a class="button primary cart-link" href="./sepet.html" aria-label="Sepet">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 5h2l1.3 7.2A2 2 0 0 0 8.3 14H17a2 2 0 0 0 1.9-1.4L21 7H7.1" />
+              <circle cx="9" cy="19" r="1.6" />
+              <circle cx="17" cy="19" r="1.6" />
+            </svg>
+            <span class="cart-label">Sepet</span>
             <span class="cart-count" data-cart-count>0</span>
           </a>
         </div>
@@ -75,6 +92,6 @@
       </main>
     </div>
 
-    <script src="./script.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
